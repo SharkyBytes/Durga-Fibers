@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 const carouselImages = [
   {
@@ -25,31 +26,60 @@ const carouselImages = [
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
     }, 4000);
 
-    return () => clearInterval(timer);
+    setIsVisible(true);
+
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
+
+  const calculateParallaxTransform = (factor) => {
+    const moveX = (mousePosition.x - window.innerWidth / 2) * factor;
+    const moveY = (mousePosition.y - window.innerHeight / 2) * factor;
+    return `translate(${moveX}px, ${moveY}px)`;
+  };
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-emerald-50 to-blue-50 pt-20 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-emerald-200 opacity-20 blur-3xl"
+          style={{ transform: calculateParallaxTransform(-0.01) }}></div>
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-blue-200 opacity-20 blur-3xl"
+          style={{ transform: calculateParallaxTransform(-0.02) }}></div>
+        <div className="absolute top-2/3 left-2/3 w-48 h-48 rounded-full bg-emerald-300 opacity-10 blur-2xl"
+          style={{ transform: calculateParallaxTransform(-0.03) }}></div>
+      </div>
+
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwNTk2NjkiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSI3IiBjeT0iNyIgcj0iNyIvPjwvZz48L2c+PC9zdmc+')]"></div>
       </div>
 
       <div className="container mx-auto px-4 py-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 relative z-10">
             <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg border p-2">
+              <div className={`flex items-center space-x-4 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg border p-2 animate-pulse">
                   <img 
-                    src="/lovable-uploads/e3535517-870b-4414-a49c-ed95e4eea9ff.png" 
+                    src="/lovable-uploads/Durga-fibers-logo.png" 
                     alt="Durga Fibers Logo" 
                     className="w-full h-full object-contain"
                   />
@@ -60,44 +90,54 @@ const Hero = () => {
                 </div>
               </div>
               
-              <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h2 className={`text-5xl lg:text-6xl font-bold text-gray-900 leading-tight transition-all duration-1000 delay-300 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 Global Trade
-                <span className="block text-emerald-600">Excellence</span>
+                <span className="block text-emerald-600 relative">
+                  Excellence
+                  <span className="absolute -bottom-2 left-0 w-24 h-1 bg-emerald-600"></span>
+                </span>
               </h2>
               
-              <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
+              <p className={`text-xl text-gray-600 leading-relaxed max-w-2xl transition-all duration-1000 delay-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 Leading exporter of premium agricultural products, oils, textiles, and raw materials. 
                 Connecting Indian quality with global markets through trust, innovation, and excellence.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg">
-                Explore Products
+            <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg group relative overflow-hidden shadow-md">
+                <span className="relative z-10 flex items-center">
+                  Explore Products
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </span>
+                <span className="absolute inset-0 bg-emerald-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
               </Button>
-              <Button variant="outline" size="lg" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-4 text-lg">
-                Get Quote
+              <Button variant="outline" size="lg" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-4 text-lg group">
+                <span className="flex items-center">
+                  Get Quote
+                  <ChevronRight className="ml-1 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </span>
               </Button>
             </div>
             
-            <div className="grid grid-cols-3 gap-8 pt-8">
+            <div className={`grid grid-cols-3 gap-8 pt-8 transition-all duration-1000 delay-900 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600">500+</div>
+                <div className="text-3xl font-bold text-emerald-600 animate-count">500+</div>
                 <div className="text-gray-600">Global Clients</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600">50+</div>
+                <div className="text-3xl font-bold text-emerald-600 animate-count">50+</div>
                 <div className="text-gray-600">Countries</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600">15+</div>
+                <div className="text-3xl font-bold text-emerald-600 animate-count">15+</div>
                 <div className="text-gray-600">Years Experience</div>
               </div>
             </div>
           </div>
           
           {/* Right Content - Enhanced Carousel */}
-          <div className="relative">
+          <div className={`relative transition-all duration-1000 delay-300 transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
             <div className="relative w-full h-[700px] rounded-2xl overflow-hidden shadow-2xl">
               {carouselImages.map((image, index) => (
                 <div
@@ -110,9 +150,9 @@ const Hero = () => {
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-10000 hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
                   <div className="absolute bottom-8 left-8 right-8">
                     <h3 className="text-2xl font-bold text-white mb-2">{image.title}</h3>
                     <p className="text-white/90">{image.description}</p>
@@ -133,19 +173,23 @@ const Hero = () => {
                 ))}
               </div>
             </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -top-6 -right-6 w-24 h-24 bg-emerald-400/20 rounded-full blur-xl"></div>
+            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-400/20 rounded-full blur-xl"></div>
           </div>
         </div>
         
         {/* Founder's Vision Section */}
-        <div className="mt-24 bg-white rounded-2xl shadow-xl p-12 pt-16 pr-16 pl-16 relative overflow-hidden">
+        <div className={`mt-24 bg-white rounded-2xl shadow-xl p-12 pt-16 pr-16 pl-16 relative overflow-hidden transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-100 rounded-full -translate-y-32 translate-x-32 opacity-50"></div>
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-100 rounded-full translate-y-24 -translate-x-24 opacity-50"></div>
           
           <div className="relative z-10 text-center max-w-4xl mx-auto">
             <div className="flex justify-center mb-8">
-              <div className="w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg p-3">
+              <div className="w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg p-3 animate-pulse">
                 <img 
-                  src="/lovable-uploads/e3535517-870b-4414-a49c-ed95e4eea9ff.png" 
+                  src="/lovable-uploads/Durga-fibers-logo.png" 
                   alt="Durga Fibers Logo" 
                   className="w-full h-full object-contain"
                 />

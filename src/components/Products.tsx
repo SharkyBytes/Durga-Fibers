@@ -26,23 +26,9 @@ const Products = () => {
   }, []);
 
   const products = [
+  
     {
       id: 1,
-      title: "Edible Oils",
-      description: "Premium quality cooking oils extracted from the finest raw materials",
-      image: "/lovable-uploads/96803b9d-3bd3-4f89-ae15-9ee43567ea2d.png",
-      category: "Food & Beverages",
-      subProducts: [
-        { name: "Desi Ghee", slug: "desi-ghee" },
-        { name: "Mustard Oil", slug: "mustard-oil" },
-        { name: "Sunflower Oil", slug: "sunflower-oil" },
-        { name: "Rice Bran Oil", slug: "rice-bran-oil" },
-        { name: "Flex Seeds Oil", slug: "flex-seeds-oil" },
-        { name: "Groundnut Oil", slug: "groundnut-oil" }
-      ]
-    },
-    {
-      id: 2,
       title: "Cotton",
       description: "High-quality cotton sourced directly from farms across India",
       image: "/lovable-uploads/a4e44568-f246-4408-bdbf-b77f84c49f0c.png",
@@ -54,6 +40,17 @@ const Products = () => {
         { name: "Mech1/Bunny Cotton", slug: "mech1-bunny-cotton" },
         { name: "DCH 32 Cotton", slug: "dch-32-cotton" },
         { name: "MCU5 Cotton", slug: "mcu5-cotton" }
+      ]
+    },
+    {
+      id: 2,
+      title: "Yarn",
+      description: "Premium quality yarn for textile manufacturing and handicrafts",
+      image: "/lovable-uploads/7d430275-1c90-4470-873a-508c805f85c0.png",
+      category: "Textiles",
+      subProducts: [
+        { name: "Ring Spun Yarn", slug: "ring-spun-yarn" },
+        { name: "Open End Yarn", slug: "open-end-yarn" }
       ]
     },
     {
@@ -72,17 +69,22 @@ const Products = () => {
         { name: "Maize DOC", slug: "maize-doc" }
       ]
     },
+    
     {
       id: 4,
-      title: "Yarn",
-      description: "Premium quality yarn for textile manufacturing and handicrafts",
-      image: "/lovable-uploads/7d430275-1c90-4470-873a-508c805f85c0.png",
-      category: "Textiles",
+      title: "Edible Oils",
+      description: "Premium quality cooking oils extracted from the finest raw materials",
+      image: "/lovable-uploads/96803b9d-3bd3-4f89-ae15-9ee43567ea2d.png",
+      category: "Food & Beverages",
       subProducts: [
-        { name: "Ring Spun Yarn", slug: "ring-spun-yarn" },
-        { name: "Open End Yarn", slug: "open-end-yarn" }
+        { name: "Desi Ghee", slug: "desi-ghee" },
+        { name: "Mustard Oil", slug: "mustard-oil" },
+        { name: "Sunflower Oil", slug: "sunflower-oil" },
+        { name: "Rice Bran Oil", slug: "rice-bran-oil" },
+        { name: "Flex Seeds Oil", slug: "flex-seeds-oil" },
+        { name: "Groundnut Oil", slug: "groundnut-oil" }
       ]
-    }
+    },
   ];
 
   return (

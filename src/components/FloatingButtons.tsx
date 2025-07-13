@@ -1,14 +1,23 @@
 
 import { Phone, MessageCircle } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const FloatingButtons = () => {
   // WhatsApp contact number
   const whatsappNumber = "+919610835660";
+  const navigate = useNavigate();
+  const location = useLocation();
   
   const handlePhoneClick = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+    // Check if we're on the product detail page
+    if (location.pathname.includes('/product/')) {
+      navigate('/#contact');
+    } else {
+      // On main page, just scroll to contact
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 

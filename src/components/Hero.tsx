@@ -202,7 +202,7 @@ const Hero = () => {
             </blockquote>
             
             <div className="text-center">
-              <p className="text-xl font-semibold text-emerald-600 mb-2">Shailendra Hatiwal</p>
+              <p className="text-xl font-semibold text-emerald-600 mb-2">Shailendra Hatwal</p>
               <p className="text-gray-500">Founder & CEO, Durga Fibers</p>
             </div>
           </div>

@@ -28,54 +28,59 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      title: "Premium Oils & Extracts",
-      description: "High-quality cooking oils, essential oils, and natural extracts for global markets",
+      title: "Edible Oils",
+      description: "Premium quality cooking oils extracted from the finest raw materials",
       image: "/lovable-uploads/96803b9d-3bd3-4f89-ae15-9ee43567ea2d.png",
       category: "Food & Beverages",
       subProducts: [
-        { name: "Soybean Oil", slug: "soybean-oil" },
+        { name: "Desi Ghee", slug: "desi-ghee" },
         { name: "Mustard Oil", slug: "mustard-oil" },
         { name: "Sunflower Oil", slug: "sunflower-oil" },
-        { name: "Coconut Oil", slug: "coconut-oil" }
+        { name: "Rice Bran Oil", slug: "rice-bran-oil" },
+        { name: "Flex Seeds Oil", slug: "flex-seeds-oil" },
+        { name: "Groundnut Oil", slug: "groundnut-oil" }
       ]
     },
     {
       id: 2,
-      title: "Agricultural Products",
-      description: "Fresh grains, pulses, spices, and processed agricultural commodities",
-      image: "/lovable-uploads/3d81157d-e58f-4569-8dfb-8da8f2416b9b.png",
-      category: "Agriculture",
+      title: "Cotton",
+      description: "High-quality cotton sourced directly from farms across India",
+      image: "/lovable-uploads/a4e44568-f246-4408-bdbf-b77f84c49f0c.png",
+      category: "Raw Materials",
       subProducts: [
-        { name: "Wheat", slug: "wheat" },
-        { name: "Rice", slug: "rice" },
-        { name: "Turmeric", slug: "turmeric" },
-        { name: "Cumin Seeds", slug: "cumin-seeds" }
+        { name: "Shankar 6 Cotton", slug: "shankar-6-cotton" },
+        { name: "V 797 Cotton", slug: "v-797-cotton" },
+        { name: "J 34 Cotton", slug: "j-34-cotton" },
+        { name: "Mech1/Bunny Cotton", slug: "mech1-bunny-cotton" },
+        { name: "DCH 32 Cotton", slug: "dch-32-cotton" },
+        { name: "MCU5 Cotton", slug: "mcu5-cotton" }
       ]
     },
     {
       id: 3,
-      title: "Textile Materials",
-      description: "Premium cotton, synthetic fibers, and textile manufacturing materials",
-      image: "/lovable-uploads/7d430275-1c90-4470-873a-508c805f85c0.png",
-      category: "Textiles",
+      title: "Animal Feeds",
+      description: "Nutritionally balanced feed products for livestock and poultry",
+      image: "/lovable-uploads/3d81157d-e58f-4569-8dfb-8da8f2416b9b.png",
+      category: "Agriculture",
       subProducts: [
-        { name: "Cotton Yarn", slug: "cotton-yarn" },
-        { name: "Polyester Fabric", slug: "polyester-fabric" },
-        { name: "Silk Fabric", slug: "silk-fabric" },
-        { name: "Denim Fabric", slug: "denim-fabric" }
+        { name: "Rice Bran", slug: "rice-bran" },
+        { name: "Cotton Seed Oil Cake", slug: "cotton-seed-oil-cake" },
+        { name: "Soya Husk", slug: "soya-husk" },
+        { name: "Bird Feed", slug: "bird-feed" },
+        { name: "Channa Husk", slug: "channa-husk" },
+        { name: "Groundnut Cake", slug: "groundnut-cake" },
+        { name: "Maize DOC", slug: "maize-doc" }
       ]
     },
     {
       id: 4,
-      title: "Natural Cotton",
-      description: "Pure cotton products and raw materials for textile industry",
-      image: "/lovable-uploads/a4e44568-f246-4408-bdbf-b77f84c49f0c.png",
-      category: "Raw Materials",
+      title: "Yarn",
+      description: "Premium quality yarn for textile manufacturing and handicrafts",
+      image: "/lovable-uploads/7d430275-1c90-4470-873a-508c805f85c0.png",
+      category: "Textiles",
       subProducts: [
-        { name: "Raw Cotton", slug: "raw-cotton" },
-        { name: "Cotton Fiber", slug: "cotton-fiber" },
-        { name: "Cotton Seeds", slug: "cotton-seeds" },
-        { name: "Cotton Waste", slug: "cotton-waste" }
+        { name: "Ring Spun Yarn", slug: "ring-spun-yarn" },
+        { name: "Open End Yarn", slug: "open-end-yarn" }
       ]
     }
   ];

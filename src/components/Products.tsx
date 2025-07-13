@@ -81,7 +81,7 @@ const Products = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50 relative overflow-hidden">
+    <section id="products" className="py-20 bg-gray-50 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-100 rounded-full -translate-y-1/2 translate-x-1/2 opacity-50 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-100 rounded-full translate-y-1/2 -translate-x-1/2 opacity-40 blur-3xl"></div>
@@ -149,28 +149,6 @@ const Products = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-        
-        {/* Global Trade Partners Section */}
-        <div className="mt-24 text-center">
-          <h3 className="text-3xl font-bold text-gray-900 mb-12">Our Global Trade Partners</h3>
-          <div className="flex flex-wrap justify-center items-center gap-12 opacity-70">
-            <div className="w-32 h-16 bg-white rounded-lg shadow-sm flex items-center justify-center p-4">
-              <div className="text-xl font-bold text-gray-400">Partner 1</div>
-            </div>
-            <div className="w-32 h-16 bg-white rounded-lg shadow-sm flex items-center justify-center p-4">
-              <div className="text-xl font-bold text-gray-400">Partner 2</div>
-            </div>
-            <div className="w-32 h-16 bg-white rounded-lg shadow-sm flex items-center justify-center p-4">
-              <div className="text-xl font-bold text-gray-400">Partner 3</div>
-            </div>
-            <div className="w-32 h-16 bg-white rounded-lg shadow-sm flex items-center justify-center p-4">
-              <div className="text-xl font-bold text-gray-400">Partner 4</div>
-            </div>
-            <div className="w-32 h-16 bg-white rounded-lg shadow-sm flex items-center justify-center p-4">
-              <div className="text-xl font-bold text-gray-400">Partner 5</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

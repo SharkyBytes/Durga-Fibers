@@ -148,31 +148,6 @@ const About = () => {
             ))}
           </div>
         </div>
-        
-        {/* Vision & Mission */}
-        <div className={`mt-20 grid md:grid-cols-2 gap-8 transition-all duration-1000 delay-800 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-8 rounded-xl">
-            <h3 className="text-2xl font-bold text-emerald-800 mb-4 flex items-center">
-              <span className="w-8 h-8 bg-emerald-200 rounded-full flex items-center justify-center mr-3 text-emerald-700">V</span>
-              Our Vision
-            </h3>
-            <p className="text-emerald-700">
-              To become the leading global trade facilitator connecting premium Indian products with international markets, 
-              driving sustainable growth and creating value for all stakeholders through innovation and excellence.
-            </p>
-          </div>
-          
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
-            <h3 className="text-2xl font-bold text-blue-800 mb-4 flex items-center">
-              <span className="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center mr-3 text-blue-700">M</span>
-              Our Mission
-            </h3>
-            <p className="text-blue-700">
-              To provide high-quality products and exceptional service to our global clients, 
-              while supporting local producers and maintaining the highest standards of business ethics and sustainability.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );

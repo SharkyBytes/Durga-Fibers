@@ -5,22 +5,22 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 
 const carouselImages = [
   {
-    src: "/lovable-uploads/49878813-8997-4101-9491-7855e4730939.png",
+    src: "/lovable-uploads/Candiani-Denim-mill-6-1024x681.jpg",
+    alt: "Textile Manufacturing",
+    title: "Premium Textile Manufacturing",
+    description: "State-of-the-art facilities ensuring the highest quality textile production."
+  },
+  {
+    src: "/lovable-uploads/premium_photo-1677575234800-a797dab45408.jpg",
     alt: "Agricultural Products",
-    title: "Premium Agricultural Products",
-    description: "Sourced directly from local farms, ensuring the highest quality and freshness."
+    title: "Quality Agricultural Products",
+    description: "Sourced directly from local farms, ensuring freshness and sustainability."
   },
   {
-    src: "/lovable-uploads/96803b9d-3bd3-4f89-ae15-9ee43567ea2d.png",
-    alt: "Oils & Extracts",
-    title: "Finest Oils & Extracts",
-    description: "Expertly extracted and processed to retain natural flavors and nutrients."
-  },
-  {
-    src: "/lovable-uploads/7d430275-1c90-4470-873a-508c805f85c0.png",
-    alt: "Textile Materials",
-    title: "High-Quality Textile Materials",
-    description: "Durable and versatile materials for various textile applications."
+    src: "/lovable-uploads/tony-williams-H7_3bl3cSzQ-unsplash.jpg",
+    alt: "Farming Operations",
+    title: "Sustainable Farming Operations",
+    description: "Supporting local farmers with ethical and sustainable practices."
   }
 ];
 
@@ -106,17 +106,11 @@ const Hero = () => {
             
             <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg group relative overflow-hidden shadow-md">
-                <span className="relative z-10 flex items-center">
+                <a href="#products" className="relative z-10 flex items-center text-white no-underline">
                   Explore Products
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </span>
+                </a>
                 <span className="absolute inset-0 bg-emerald-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-              </Button>
-              <Button variant="outline" size="lg" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-4 text-lg group">
-                <span className="flex items-center">
-                  Get Quote
-                  <ChevronRight className="ml-1 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </span>
               </Button>
             </div>
             
@@ -187,7 +181,7 @@ const Hero = () => {
           
           <div className="relative z-10 text-center max-w-4xl mx-auto">
             <div className="flex justify-center mb-8">
-              <div className="w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg p-3 animate-pulse">
+              <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg p-3 border-2 border-emerald-500">
                 <img 
                   src="/lovable-uploads/Durga-fibers-logo.png" 
                   alt="Durga Fibers Logo" 
